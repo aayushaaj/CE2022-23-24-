@@ -1,5 +1,4 @@
 #include "../include/LinkedlistBST.h"
-#include "../include/node.h"
 #include <iostream>
 
 LinkedlistBST::LinkedlistBST()
@@ -9,7 +8,7 @@ LinkedlistBST::LinkedlistBST()
 
 bool LinkedlistBST::isEmpty()
 {
-     return root = nullptr;
+     return root == nullptr;
 }
 
 void LinkedlistBST::addBST(int data)
@@ -24,7 +23,7 @@ void LinkedlistBST::addBST(int data)
      }
 }
 
-void addNode(node *newNode, int data)
+void LinkedlistBST::addNode(node *newNode, int data)
 {
      if (data < newNode->key)
      {
@@ -54,12 +53,11 @@ bool LinkedlistBST::removeBST(int key)
 {
 
      bool isRemoved = false;
-     int keyToDelete;
-     root = removeNode(root, keyToDelete, isRemoved);
+     root = removeNode(root, key, isRemoved);
      return isRemoved;
 }
 
-node *LinkedlistBST::removeNode(node *root, int keyToDelete, bool isRemoved)
+node *LinkedlistBST::removeNode(node *root, int keyToDelete, bool &isRemoved)
 {
      if (isEmpty())
      {
