@@ -8,7 +8,7 @@ public:
     LinkedlistBST();
     bool isEmpty();
     void addBST(int data);
-    bool removeBST(int keyToDeelete);
+    bool removeBST(int keyToDelete);
     bool searchBST(int targetkey);
     void addNode(node *newNode, int data);
     bool searchNode(node *current, int targetkey) const;

@@ -1,9 +1,9 @@
 class node
 {
+public:
     int key;
     node *left;
     node *right;
-
-public:
-    node(int key) : key(key), left(nullptr), right(nullptr) {}
+    node *root;
+    node(int key) : key(key),root(nullptr), left(nullptr), right(nullptr) {}
 };

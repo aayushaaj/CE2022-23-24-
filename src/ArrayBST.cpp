@@ -8,9 +8,9 @@ int arr[MAX] = {0};
 class ArrayBST : public BST {
 public:
     bool isEmpty() override;
-    void add(int data) override;
-    bool remove(int key) override;
-    bool search(int targetkey) override;
+    void addBST(int data) override;
+    bool removeBST(int key) override;
+    bool searchBST(int targetkey) override;
     void printInOrder(int index = 0);
 private:
     int findMin(int index);
@@ -21,7 +21,7 @@ bool ArrayBST::isEmpty() {
     return arr[0] == 0;
 }
 
-void ArrayBST::add(int data) {
+void ArrayBST::addBST(int data) {
     int index = 0;
     while (index < MAX) {
         if (arr[index] == 0) { 
@@ -36,7 +36,7 @@ void ArrayBST::add(int data) {
     cout << "Array is full. Cannot insert " << data << endl;
 }
 
-bool ArrayBST::search(int targetkey) {
+bool ArrayBST::searchBST(int targetkey) {
     int index = 0;
     while (index < MAX && arr[index] != 0) {
         if (arr[index] == targetkey) {
@@ -50,7 +50,7 @@ bool ArrayBST::search(int targetkey) {
     return false;
 }
 
-bool ArrayBST::remove(int key) {
+bool ArrayBST::removeBST(int key) {
     int index = findIndex(key);
     if (index == -1) {
         cout << "Value " << key << " not found in the tree." << endl;
@@ -65,14 +65,14 @@ bool ArrayBST::remove(int key) {
         
         int minIndex = findMin(2 * index + 2);
         arr[index] = arr[minIndex];
-        remove(arr[minIndex]);
+        removeBST(arr[minIndex]);
     } else {
         
         int childIndex = (arr[2 * index + 1] != 0) ? 2 * index + 1 : 2 * index + 2;
         arr[index] = arr[childIndex];
         arr[childIndex] = 0;
         if (arr[2 * childIndex + 1] != 0 || arr[2 * childIndex + 2] != 0) {
-            remove(arr[index]);
+            removeBST(arr[index]);
         }
     }
     return true;
@@ -108,20 +108,20 @@ int ArrayBST::findIndex(int value) {
 
 int main() {
     ArrayBST tree;
-    tree.add(10);
-    tree.add(5);
-    tree.add(15);
-    tree.add(2);
-    tree.add(7);
+    tree.addBST(10);
+    tree.addBST(5);
+    tree.addBST(15);
+    tree.addBST(2);
+    tree.addBST(7);
 
     cout << "In-order traversal: ";
     tree.printInOrder();
     cout << endl;
 
-    cout << "Search 7: " << (tree.search(7) ? "Found" : "Not Found") << endl;
-    cout << "Search 20: " << (tree.search(20) ? "Found" : "Not Found") << endl;
+    cout << "Search 7: " << (tree.searchBST(7) ? "Found" : "Not Found") << endl;
+    cout << "Search 20: " << (tree.searchBST(20) ? "Found" : "Not Found") << endl;
 
-    tree.remove(10);
+    tree.removeBST(10);
     cout << "In-order traversal after removing 10: ";
     tree.printInOrder();
     cout << endl;
