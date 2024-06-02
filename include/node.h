@@ -1,3 +1,4 @@
+#pragma once
 class node
 {
 public:
@@ -5,5 +6,5 @@ public:
     node *left;
     node *right;
     node *root;
-    node(int key) : key(key),root(nullptr), left(nullptr), right(nullptr) {}
+    node(int key) : key(key), root(nullptr), left(nullptr), right(nullptr) {}
 };
