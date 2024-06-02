@@ -5,15 +5,15 @@ bool LinkedlistBST::isEmpty()
     {
 
     }
-void LinkedlistBST::add(int data)
+void LinkedlistBST::addBST(int data)
      {
 
      }
-bool LinkedlistBST::remove(int key)
+bool LinkedlistBST::removeBST(int key)
      {
 
      }
-bool LinkedlistBST::search(int targetkey)
+bool LinkedlistBST::searchBST(int targetkey)
      {
 
      }
